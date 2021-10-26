@@ -30,7 +30,6 @@ Event.init(
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }
-
     }
 )
 
