@@ -7,8 +7,9 @@ class Event extends Model {}
 Event.init(
     {
         id: {
-            type: DataTypes.UUIDV4,
-            primaryKey: true
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
         },
         title:{
             type: DataTypes.STRING,
@@ -27,9 +28,18 @@ Event.init(
             allowNull: false
         },
         invite: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
+            type: DataTypes.STRING,
+        },
+        host: {
+            type: DataTypes.STRING,
         }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'event'
     }
 )
 

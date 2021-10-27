@@ -11,9 +11,10 @@ class User extends Model {
 User.init(
     {
         id: {
-            type: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         username: {
             type: DataTypes.STRING,
@@ -29,7 +30,7 @@ User.init(
             validate: {
                 len: [5]
             }
-        }
+        },
     },
     {
         hooks: {
@@ -45,7 +46,8 @@ User.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        modelName: 'User'
+        underscored: true,
+        modelName: 'user'
 
     }
 )

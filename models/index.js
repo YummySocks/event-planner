@@ -1,11 +1,18 @@
 const User = require('./User')
-const Post = require('./Event')
+const Event = require('./Event')
 
+User.hasMany(Event, {
+    foreignKey: 'user_email'
+})
 
+Event.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
 
 
 
 module.exports = {
     User,
-    Post
+    Event
 }
