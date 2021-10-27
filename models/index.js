@@ -1,14 +1,12 @@
 const User = require('./User')
 const Event = require('./Event')
-const eventUser = require('./user_event')
+const eventUser = require('./EventUser')
 
 Event.belongsToMany(User, {
     through: {
         model: eventUser,
         unique: false,
     },
-    as: "Events",
-    foreignKey: "events_id"
 })
 
 User.belongsToMany(Event, {
@@ -16,8 +14,6 @@ User.belongsToMany(Event, {
         model: eventUser,
         unique: false,
     },
-    as: "Users",
-    foreignKey: "users_id"
 })
 
 

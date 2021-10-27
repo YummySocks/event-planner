@@ -1,6 +1,6 @@
 const eventSeeds = require('./event-seeds')
 const userSeeds = require('./user-seeds')
-const seedEventUser = require('./user_event-seeds')
+const seedEventUser = require('./eventUser-seeds')
 const sequelize = require('../config/config')
 
 const seedAll = async () => {

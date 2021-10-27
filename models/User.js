@@ -29,13 +29,6 @@ User.init(
             validate: {
                 len: [5]
             }
-        },
-        event_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'event',
-                key: 'id'
-            }
         }
     },
     {
