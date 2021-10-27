@@ -27,11 +27,12 @@ Event.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        invite: {
-            type: DataTypes.STRING,
-        },
-        host: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {

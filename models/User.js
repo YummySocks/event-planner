@@ -22,7 +22,6 @@ User.init(
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         password: {
             type: DataTypes.STRING,
@@ -31,6 +30,13 @@ User.init(
                 len: [5]
             }
         },
+        event_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'event',
+                key: 'id'
+            }
+        }
     },
     {
         hooks: {

@@ -4,3 +4,19 @@ body {
   /* display: flex;
   justify-content: center; */
 }
+
+.homepage {
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+#logo {
+  max-height: 10vh;
+}
