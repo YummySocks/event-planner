@@ -26,12 +26,6 @@ Event.init(
         capacity: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        invite: {
-            type: DataTypes.STRING,
-        },
-        host: {
-            type: DataTypes.STRING,
         }
     },
     {

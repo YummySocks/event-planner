@@ -22,7 +22,6 @@ User.init(
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         password: {
             type: DataTypes.STRING,
@@ -30,7 +29,7 @@ User.init(
             validate: {
                 len: [5]
             }
-        },
+        }
     },
     {
         hooks: {
