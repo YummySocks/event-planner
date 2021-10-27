@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const loginRoute = require('./user-routes')
+const loginRoute = require('./loginRoute')
+const eventRoute = require('./event-routes')
+const userRoute = require('./user-routes')
 
-
-
-router.use('/login', loginRoute);
-
+router.use('/event', eventRoute)
+router.use('/users', userRoute)
 
 const deleteEvent = (id) =>
   fetch(`/api/${id}`, {
@@ -45,9 +45,4 @@ const deleteEvent = (id) =>
   };
 
 
-  module.exports = [
-    deleteEvent,
-    saveEvent,
-    getEvent,
-    handleEventSave
-]
+  module.exports = router;
