@@ -6,9 +6,6 @@ const loginRoute = require('./user-routes')
 router.use('/login', loginRoute);
 
 
-module.exports = router;
-
-
 const deleteEvent = (id) =>
   fetch(`/api/${id}`, {
     method: 'DELETE',
@@ -33,3 +30,24 @@ const deleteEvent = (id) =>
       'Content-Type': 'application/json',
     },
   });
+
+  const handleEventSave = () => {
+    const newEvent = {
+      title: title.value,
+      description: description.value,
+      dates: dates.value,
+      capacity: capacity.value
+    };
+    saveEvent(newEvent).then(() => {
+      //getAndRenderEvent();
+      //renderActiveEvent();
+    });
+  };
+
+
+  module.exports = [
+    deleteEvent,
+    saveEvent,
+    getEvent,
+    handleEventSave
+]

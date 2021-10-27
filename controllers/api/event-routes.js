@@ -1,8 +1,6 @@
 
 const router = require('express').Router();
-const { Event, User } = require('../../models');
-
-
+const { Event, EventUser } = require('../../models');
 
 // get all events
 router.get('/', (req, res) => {
@@ -53,8 +51,7 @@ router.get('/', (req, res) => {
           });
   });
   
-
-
+ 
   // update event (only title and description added for now)
 router.put('/:id', (req, res, next ) => {
     Event.update(
@@ -67,7 +64,22 @@ router.put('/:id', (req, res, next ) => {
       .catch(next) 
     })
 
-    router.delete('/', (req, res) => {
-        Event
-        .remove
-    }
+
+    //delete event
+    router.delete('/:id', (req, res) => {
+        Event.destroy({
+          where: {
+            id: req.params.id,
+          },
+        })
+          .then((products) => {
+              ///delete applicable eventUser data. 
+              ///delete all elements in eventUser with same event ID here
+            res.json(products);
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+          });
+      });
+      
