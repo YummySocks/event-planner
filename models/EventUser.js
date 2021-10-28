@@ -13,14 +13,14 @@ EventUser.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      users_id: {
+      usersId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
-          key: 'id'
+          key: 'id',
         },
       },
-      events_id: {
+      eventsId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'event',
@@ -33,7 +33,7 @@ EventUser.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'event_user',
+      modelName: 'eventuser',
     }
   );
   
