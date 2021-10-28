@@ -2,55 +2,8 @@
 const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
 
-// get all events
-router.get('/', (req, res) => {
-    Event.findAll({
-      include: [User],
-    })
-      .then((events) => res.json(events))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+
   
-  // get one event
-  router.get('/:id', (req, res) => {
-    try{
-      const eventData = await Event.findByPk(req.params.id, {
-        include : [
-          User,
-          {
-            model: 
-            include [],
-          },
-        ],
-          });
-      
-          if (eventData) {
-            const event = eventData.get({plain: true});
-
-            res.render('single-event', {event});
-          } else {
-            res.status(404).end();
-          }
-        } catch (err) {
-          res.status(500).json(err);
-        }
-          });
-    
-///old get one event 
-          router.get('/:id', (req, res) => {
-            Event.findByPk(req.params.id, {
-              include: [User]
-            })
-              .then((events) => res.json(events))
-              .catch((err) => {
-                console.log(err);
-                res.status(400).json(err);
-              });
-          });
-
 
   //create new event
   router.post('/', (req, res) => {

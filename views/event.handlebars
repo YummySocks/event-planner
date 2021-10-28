@@ -1,0 +1,28 @@
+      <!-- Single Event Page -->
+      <div class="container-fluid homepage">
+        <div class="row align-items-start">
+          <nav class="col-2 bg-light homepage p-2">
+            <h2> Navigation </h2>
+            <div class="col">
+            <button type="button" class="btn-secondary">Log Out</button>
+            <button type="button" class="btn-secondary">Cancel Event
+ <!-- cancel event -->
+              </button>
+            </div>
+          </nav>
+          <div class="col p-2">
+           <h2>{{title}}</h2>
+           <p>{{description}}</p>
+           <h2>Attendees</h2>
+           <div class="inviteList">
+            <ol>
+            <li>{{#each users as |users| }} {{user.username}}</li> {{/each}}
+            </ol>
+            </div>
+          </div>
+          <aside class="col-2 bg-light homepage p-2">
+            <h2>My RSVPs</h2>
+          </aside>
+        </div>
+        <script src='/js/logout.js'></script>
+      <!-- end Single Event Page -->

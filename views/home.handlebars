@@ -1,18 +1,33 @@
-      <!-- Home Page -->
-      <div class="container-fluid homepage">
-        <div class="row align-items-start">
-          <nav class="col-2 bg-light homepage p-2">
-            <h2> Navigation </h2>
-            <!-- {{#if logged_in}}
+<!-- Home Page -->
+<div class="container-fluid homepage">
+  <div class="row align-items-start">
+    <nav class="col-2 bg-light homepage p-2">
+      <h2> Navigation </h2>
+      <!-- {{#if logged_in}}
               <script src='/js/logout.js'></script>
             {{/if}} -->
-          </nav>
-          <div class="col p-2">
-           <h2>My Events</h2>
-           {{ home page content }}
+    </nav>
+    <div class="col p-2">
+      <h2>My Events</h2>
+      {{#each events}}
+      <article>
+        <div>
+          <h2>
+            <a href="/event/{{id}}">{{title}}</a>
+          </h2>
+          <div>
+            
           </div>
-          <aside class="col-2 bg-light homepage p-2">
-            <h2>My RSVPs</h2>
-          </aside>
         </div>
-      <!-- end Home Page -->
+        <div>
+          {{description}}
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    <aside class="col-2 bg-light homepage p-2">
+      <h2>My RSVPs</h2>
+    </aside>
+  </div>
+  </div>
+  <!-- end Home Page -->
