@@ -1,0 +1,36 @@
+      <!-- CreateNew Page -->
+      <div class="container-fluid homepage">
+        <div class="row align-items-start">
+          <nav class="col-2 bg-light homepage p-2">
+            <h2> Navigation </h2>
+            <!-- {{#if logged_in}}
+              <script src='/js/logout.js'></script>
+            {{/if}} -->
+          </nav>
+          <form class="col p-4" autocomplete="off">
+           <h2>Create New Event</h2>
+           <div class="mb-3">
+            <label for="eventTitle" class="form-label">Event Title</label>
+            <input type="text" class="form-control" id="eventTitle" placeholder="Ex: Birthday Bash!">
+            <label for="eventLoc" class="form-label">Location</label>
+            <input type="text" class="form-control" id="eventLoc" placeholder="Ex: Atlanta, GA">
+        </div>
+        <div class="mb-3">
+            <label for="eventDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="eventDescription" rows="4" placeholder="Tell people about the event, what to bring, what to wear, etc..."></textarea>
+        </div>
+        <!-- datePicker -->
+        <div class="container">
+          <div class="row">
+            <label for="from" class="form-label">From</label>
+            <input type="text" id="from" name="from" class="form-control col">
+            <label for="to">To</label>
+            <input type="text" id="to" name="to" class="form-control col">
+          </div>
+        </div>
+      </form>
+          <aside class="col-2 bg-light homepage p-2">
+            <h2>My RSVPs</h2>
+          </aside>
+        </div>
+      <!-- end CreateNew Page -->

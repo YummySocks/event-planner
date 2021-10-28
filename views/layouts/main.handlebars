@@ -9,51 +9,57 @@
     <title>Party Planner</title>
 
     <link
-      rel='stylesheet'
-      href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
-      integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3'
-      crossorigin='anonymous'
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
     />
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href='https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap'
-      rel='stylesheet'
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap"
+      rel="stylesheet"
     />
-    <link rel='stylesheet' href='./css/style.css' />
-    {{!-- Datepicker Jquery UI scripts -add conditionally?? --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
     <script>
-    $( function() {
-        var dateFormat = "mm/dd/yy",
+    $(function() {
+      var dateFormat = "mm/dd/yy",
         from = $( "#from" )
-            .datepicker({
+          .datepicker({
             defaultDate: "+1w",
             changeMonth: true,
-            numberOfMonths: 3
-            })
-            .on( "change", function() {
+            numberOfMonths: 1
+          })
+          .on( "change", function() {
             to.datepicker( "option", "minDate", getDate( this ) );
-            }),
+          }),
         to = $( "#to" ).datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 3
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
         })
         .on( "change", function() {
-            from.datepicker( "option", "maxDate", getDate( this ) );
+          from.datepicker( "option", "maxDate", getDate( this ) );
         });
-    
-        function getDate( element ) {
+   
+      function getDate( element ) {
         var date;
         try {
-            date = $.datepicker.parseDate( dateFormat, element.value );
+          date = $.datepicker.parseDate( dateFormat, element.value );
         } catch( error ) {
-            date = null;
+          date = null;
         }
-    
+   
         return date;
-        }
+      }
     } );
     </script>
   </head>
@@ -66,10 +72,5 @@
 
     </main>
 
-    <script
-      src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js'
-      integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13'
-      crossorigin='anonymous'
-    ></script>
   </body>
 </html>
