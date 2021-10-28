@@ -3,12 +3,9 @@ const {Event, User, EventUser} = require('../models')
 const withAuth = require('../utils/auth')
 
 // get all events
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const eventData = await Event.findAll({
-            where: {
-                userId: req.session.userId,
-              },
             include: [User],
           })
           const events = eventData.map((event) => event.get({plain : true}))
