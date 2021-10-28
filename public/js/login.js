@@ -46,9 +46,9 @@ const loginSection = async (event) => {
   };
   
   document
-    .querySelector('.row')
+    .querySelector('#login')
     .addEventListener('submit', loginSection);
   
   document
-    .querySelector('.row')
+    .querySelector('#signup')
     .addEventListener('submit', signupSection);

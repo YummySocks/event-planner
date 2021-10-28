@@ -41,14 +41,14 @@ router.post('/login', async (req, res) => {
             },
         });
         if (!user) {
-            res.status(400).json({ message: 'Credentials not found!' })
+            res.status(400).json({ message: 'user not found!' })
             return;
         }
 
-        const correctPassword = user.checkPassword(req.body.password);
+        const validPassword = user.checkPassword(req.body.password);
 
-        if (!correctPassword) {
-            res.status(400).json({ message: 'Credentials not found!' });
+        if (!validPassword) {
+            res.status(400).json({ message: 'password not found!' });
             return;
         }
 

@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
 
-  
+
   // get one event
   router.get('/:id', (req, res) => {
     Event.findByPk(req.params.id, {
