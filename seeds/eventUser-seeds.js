@@ -17,5 +17,5 @@ const eventUserData = [
 
 const seedEventUser = () => EventUser.bulkCreate(eventUserData)
 
-module.exports = seedEventUser
+  module.exports = seedEventUser
 
