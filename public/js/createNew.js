@@ -8,7 +8,7 @@ const createNew = async (event) => {
   const to = document.querySelector('#to').value.trim();
 
   if (title && location && description && from && to) {
-    const response = await fetch(`/api/events`, {
+    const response = await fetch(`/api/event`, {
       method: 'POST',
       body: JSON.stringify({ title, location, description, from, to }),
       headers: {

@@ -11,9 +11,7 @@ const { Event, EventUser, User } = require('../../models');
         title: req.body.title,
         description: req.body.description,
         dates: req.body.dates,
-        capacity: req.body.capacity,
-        invite: req.body.invite,
-        host: req.body.host
+        capacity: req.body.capacity
     })      
         .then((newEvent) => {
             res.json(newEvent)

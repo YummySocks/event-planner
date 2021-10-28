@@ -26,12 +26,12 @@ const loginSection = async () => {
     debugger
     const email = document.querySelector('#signupEmail').value;
     const password = document.querySelector('#signupPassword').value;
-    const name = document.querySelector('#signupName').value;
+    const username = document.querySelector('#signupName').value;
   
-    if (email && password && name) {
+    if (email && password && username) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ email, password, name }),
+        body: JSON.stringify({ email, password, username }),
         headers: { 'Content-Type': 'application/json' },
       });
   

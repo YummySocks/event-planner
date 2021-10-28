@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
             include: [User],
           })
           const events = eventData.map((event) => event.get({plain : true}))
-
+          console.log(events)
           res.render('home', {events})
     } catch (err) {
         res.redirect('login')
@@ -17,13 +17,12 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
 
-  //login
+  // login
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
       return;
     }
-  
     res.render('login');
   });
 
@@ -49,7 +48,6 @@ router.get('/event/:id', async (req, res) => {
       ],
         });
           const event = eventData.get({plain: true});
-          console.log(event)
           res.render('event', {event});
       } catch (err) {
         res.status(500).json(err);

@@ -23,6 +23,11 @@ Event.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        location: {
+            type: DataTypes.STRING,
+            defaultValue: "yes",
+            allowNull: false
+        },
         capacity: {
             type: DataTypes.INTEGER,
             allowNull: false
