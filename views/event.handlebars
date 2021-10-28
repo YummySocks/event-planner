@@ -3,23 +3,20 @@
         <div class="row align-items-start">
           <nav class="col-2 bg-light homepage p-2">
             <h2> Navigation </h2>
-            <!-- {{#if logged_in}} -->
             <div class="col">
-            <button type="button" class="btn-secondary">Logout
-              <script src='/js/logout.js'></script>
-            </button>
-            <!-- {{/if}} -->
+            <button type="button" class="btn-secondary">Log Out</button>
             <button type="button" class="btn-secondary">Cancel Event
  <!-- cancel event -->
               </button>
             </div>
           </nav>
           <div class="col p-2">
-           <h2>{{event.name}}</h2>
+           <h2>{{title}}</h2>
+           <p>{{description}}</p>
            <h2>Attendees</h2>
            <div class="inviteList">
             <ol>
-            <li>{{#each user as |users| }} {{user.name}}</li> {{/each}}
+            <li>{{#each users as |users| }} {{user.username}}</li> {{/each}}
             </ol>
             </div>
           </div>
@@ -27,4 +24,5 @@
             <h2>My RSVPs</h2>
           </aside>
         </div>
+        <script src='/js/logout.js'></script>
       <!-- end Single Event Page -->
