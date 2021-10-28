@@ -3,7 +3,7 @@ const {Event, User, EventUser} = require('../models')
 const withAuth = require('../utils/auth')
 
 // get all events
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const eventData = await Event.findAll({
             include: [User],
@@ -17,9 +17,20 @@ router.get('/', async (req, res) => {
     }
   });
 
+  //login
   router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
     res.render('login');
   });
+
+  //logout
+  
+  
+
 
 // get one event
 router.get('/event/:id', async (req, res) => {
