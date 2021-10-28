@@ -2,27 +2,11 @@
 const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
 
-// get all events
-router.get('/', (req, res) => {
-    Event.findAll({
-      include: [User],
-    })
-      .then((events) => res.json(events))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
   
   // get one event
   router.get('/:id', (req, res) => {
-    Event.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [
-        User
-      ],
+    Event.findByPk(req.params.id, {
+      include: [User]
     })
       .then((events) => res.json(events))
       .catch((err) => {
