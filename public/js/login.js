@@ -5,7 +5,6 @@ const loginSection = async () => {
   
     if (email && password) {
       // This sends a POST request to the API
-      debugger
       console.log("email and password worked!")
       const response = await fetch('/api/users/login', {
         method: 'POST',

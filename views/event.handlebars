@@ -16,7 +16,9 @@
            <h2>Attendees</h2>
            <div class="inviteList">
             <ol>
-            <li>{{#each event.users as |users| }} {{user.username}}</li> {{/each}}
+              {{#each event.users as |users|}} 
+            <li>{{users.username}}</li> 
+              {{/each}}
             </ol>
             </div>
           </div>

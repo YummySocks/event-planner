@@ -37,4 +37,4 @@ EventUser.init(
     }
   );
   
-module.exports = EventUser;
+  module.exports = EventUser;
