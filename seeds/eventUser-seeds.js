@@ -1,4 +1,4 @@
-const { eventUser } = require('../models');
+const { EventUser } = require('../models');
 
 const eventUserData = [
     {
@@ -15,24 +15,8 @@ const eventUserData = [
     }
 ]
 
-const seedEventUser = () => eventUser.bulkCreate(eventUserData)
+const seedEventUser = () => EventUser.bulkCreate(eventUserData)
 
-router.delete('/:id', (req, res) => {
-    eventUser.destroy({
-      where: {
-        id: req.params.id,
-      },
-    })
-      .then((products) => {
-        console.log(products);
-        res.json(products);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  });
-  
 
-module.exports = seedEventUser
+  module.exports = seedEventUser
 
