@@ -3,17 +3,7 @@ const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
 
 
-  // get one event
-  router.get('/:id', (req, res) => {
-    Event.findByPk(req.params.id, {
-      include: [User]
-    })
-      .then((events) => res.json(events))
-      .catch((err) => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  });
+  
 
   //create new event
   router.post('/', (req, res) => {
