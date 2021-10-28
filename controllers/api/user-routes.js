@@ -1,14 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User,  Event, EventUser } = require('../../models');
 
 
 
 //get all users
 router.get('/', (req, res) => {
     User.findAll({
-        include: [
-            EventUser
-        ],
+        include:[Event]
     })
         .then((events) => res.json(events))
         .catch((err) => {
