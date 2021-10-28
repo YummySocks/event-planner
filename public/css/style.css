@@ -17,6 +17,10 @@ h2 {
   font-weight: 400;
 }
 
+label {
+  font-size: large;
+}
+
 #logo {
   max-height: 10vh;
 }
