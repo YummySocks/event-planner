@@ -9,6 +9,10 @@ body {
   height: 100vh;
 }
 
+.inviteList {
+  float: left;
+}
+
 h1 {
   font-weight: 600;
 }
