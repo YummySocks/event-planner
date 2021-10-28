@@ -38,27 +38,3 @@ EventUser.init(
   );
   
   module.exports = EventUser;
-
-  router.get('/:id', (req, res) => {
-    try{
-      const eventData = await Event.findByPk(req.params.id, {
-        include : [
-          User,
-          {
-            model: 
-            include [],
-          },
-        ],
-          });
-      
-          if (eventData) {
-            const event = eventData.get({plain: true});
-
-            res.render('single-event', {event});
-          } else {
-            res.status(404).end();
-          }
-        } catch (err) {
-          res.status(500).json(err);
-        }
-          });
