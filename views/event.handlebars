@@ -11,12 +11,12 @@
             </div>
           </nav>
           <div class="col p-2">
-           <h2>{{title}}</h2>
-           <p>{{description}}</p>
+           <h2>{{event.title}}</h2>
+           <p>{{event.description}}</p>
            <h2>Attendees</h2>
            <div class="inviteList">
             <ol>
-            <li>{{#each users as |users| }} {{user.username}}</li> {{/each}}
+            <li>{{#each event.users as |users| }} {{user.username}}</li> {{/each}}
             </ol>
             </div>
           </div>

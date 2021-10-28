@@ -40,13 +40,9 @@ router.get('/event/:id', async (req, res) => {
         User,
       ],
         });
-        if (eventData) {
           const event = eventData.get({plain: true});
-
+          console.log(event)
           res.render('event', {event});
-        } else {
-          res.status(404).end();
-        }
       } catch (err) {
         res.status(500).json(err);
       }

@@ -5,6 +5,7 @@ const loginSection = async () => {
   
     if (email && password) {
       // This sends a POST request to the API
+      debugger
       console.log("email and password worked!")
       const response = await fetch('/api/users/login', {
         method: 'POST',
@@ -23,9 +24,10 @@ const loginSection = async () => {
 
   const signupSection = async () => {
     // This collects the value from the signup section
-    const email = document.querySelector('#signupEmail').value.trim();
-    const password = document.querySelector('#signupPassword').value.trim();
-    const name = document.querySelector('#signupName').value.trim();
+    debugger
+    const email = document.querySelector('#signupEmail').value;
+    const password = document.querySelector('#signupPassword').value;
+    const name = document.querySelector('#signupName').value;
   
     if (email && password && name) {
       const response = await fetch('/api/users', {

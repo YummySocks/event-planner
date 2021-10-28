@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
             req.session.email = user.email
             req.session.loggedIn = true;
 
-            res.json({ user, message: 'You are logged in!' });
+            res.status(200).json({ user, message: 'You are logged in!' });
         });
     } catch (err) {
         res.status(400).json({ message: 'No user account found!' });
@@ -85,7 +85,7 @@ router.post('/', (req, res) => {
         password: req.body.password,
     })
         .then((newUser) => {
-            res.json(newEvent)
+            res.json(newUser)
         })
         .catch((err) => {
             res.json(err);
