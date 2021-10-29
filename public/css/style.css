@@ -1,12 +1,14 @@
 body {
   background-color: teal;
   font-family: 'Zen Maru Gothic', sans-serif;
+  height: 100%;
   /* display: flex;
   justify-content: center; */
 }
 
 .homepage {
-  height: 100vh;
+  height: 120vh;
+  border-radius: 20px;
 }
 
 .inviteList {
