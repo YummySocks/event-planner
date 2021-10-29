@@ -2,18 +2,17 @@ const router = require('express').Router();
 const { User,  Event, EventUser } = require('../../models');
 
 
-
 //get all users
-router.get('/', (req, res) => {
-    User.findAll({
-        include:[Event]
-    })
-    .then((events) => res.json(events))
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+// router.get('/', (req, res) => {
+//     User.findAll({
+//         include:[Event]
+//     })
+//     .then((events) => res.json(events))
+//     .catch((err) => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 // get one user
 router.get('/:id', (req, res) => {
@@ -22,7 +21,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id,
         },
         include: [
-            EventUser
+            Event
         ],
     })
         .then((events) => res.json(events))
@@ -45,23 +44,21 @@ router.post('/login', async (req, res) => {
             return;
         }
         const validPassword = user.checkPassword(req.body.password);
-        console.log(validPassword)
         if (!validPassword) {
             res.status(400).json({ message: 'password not found!' });
             return;
         }
-        const userData = await user.get({plain: true})
-        console.log(userData)
-       
+        
         req.session.save(() => {
             
             req.session.email = user.email
             req.session.username = user.username
+            req.session.users_unique = user.users_unique
             req.session.loggedIn = true;
+
             res.status(200).json({ user, message: 'You are logged in!' });
         });
-        const id = userData.users_unique
-        res.redirect(`/${id}`)
+        
     } catch (err) {
         res.status(400).json({ message: 'No user account found!' });
     }
@@ -83,7 +80,6 @@ router.post('/logout', (req,res) => {
 
 //creating user
 router.post('/', async (req, res) => {
-    console.log(req.body.email)
     try {
       const newUser = await User.create({
         email: req.body.email,

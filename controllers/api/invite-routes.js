@@ -15,7 +15,6 @@ router.post('/', async (req,res) => {
             }
         })
         const evenId = await findEid.get({plain: true})
-        console.log(evenId.id)
         const newEventUser = await EventUser.create({
             usersId: userId.id,
             eventsId: evenId.id
