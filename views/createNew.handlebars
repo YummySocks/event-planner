@@ -18,19 +18,19 @@
             <label for="eventDescription" class="form-label">Description</label>
             <textarea class="form-control" id="eventDescription" rows="4" placeholder="Tell people about the event, what to bring, what to wear, etc..."></textarea>
         </div>
-        <!-- datePicker -->
-        <div class="container">
-          <div class="row">
+        <div class="row">
+          <div class="col">
             <label for="from" class="form-label">Date</label>
-            <input type="text" id="date" name="from" class="form-control">
+            <input type="date" id="date" name="from" class="form-control">
             {{!-- <label for="to">To</label>
             <input type="text" id="to" name="to" class="form-control col"> --}}
           </div>
-        </div>
-        <div class="mb-3">
+          <div class="col">
             <label for="eventCapacity" class="form-label">Capacity</label>
-            <textarea class="form-control" id="eventCapacity" rows="4" placeholder="How many people are you able to host/want uwu"></textarea>
-        </div>
+            <input type="number" min="0" class="form-control" id="eventCapacity" rows="4" placeholder="How many people are you able to host/want uwu"></input>
+ 
+         </div>
+        </div><br>
         <button type="button" class="btn btn-light" id="newEvent">It's a Party! 🎉</button>
       </form>
           <aside class="col-2 bg-light homepage p-2">
