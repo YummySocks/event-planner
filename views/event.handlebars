@@ -1,37 +1,33 @@
       <!-- Single Event Page -->
-      <div class="container-fluid homepage">
-        <div class="row align-items-start">
-          <nav class="col-2 bg-light homepage p-2">
-            <h2> Navigation </h2>
-            <div class="col">
-            <button type="button" class="btn-secondary" id="logout">Log Out</button>
-            <button type="button" class="btn-secondary" id="cancel">Cancel Event
- <!-- cancel event -->
-              </button>
-            </div>
-          </nav>
-          <div class="col p-2">
-           <h2>{{event.title}}</h2>
-           <p>{{event.description}}</p>
-           <h2>date</h2>
-           <p>{{event.dates}}</p>
-           <h2>location</h2>
-           <p>{{event.location}}</p>
-           <h2>Attendees</h2>
-           <div class="inviteList">
-            <ol>
-              {{#each event.users as |users|}} 
-            <li>{{users.username}}</li> 
-              {{/each}}
-            </ol>
-            </div>
-          </div>
-          <h2>Capacity</h2>
-          <p>{{event.capacity}}</p>
-          <aside class="col-2 bg-light homepage p-2">
-            <h2>My RSVPs</h2>
-          </aside>
-        </div>
+<nav class="col-2 bg-light homepage p-2">
+  <h2> Navigation </h2>
+  <button type="button" class="btn btn-secondary m-2" id="logout">Log Out</button>
+  <br>
+<!-- cancel event -->
+  <button type="button" class="btn btn-secondary" id="cancel">Cancel Event
+    </button>
+</nav>
+<div class="col p-2">
+    <h2>{{event.title}}</h2>
+    <p>{{event.description}}</p>
+    <h2>Date</h2>
+    <p>{{event.dates}}</p>
+    <h2>location</h2>
+    <p>{{event.location}}</p>
+    <h2>Attendees</h2>
+      <div class="">
+        <ol>
+          {{#each event.users as |users|}} 
+          <li>{{users.username}}</li> 
+          {{/each}}
+        </ol>
+      </div>
+    <h2>Capacity</h2>
+    <p>{{event.capacity}}</p>
+</div>
+  <aside class="col-2 bg-light homepage p-2">
+    <h2>My RSVPs</h2>
+  </aside>
         <script src='/js/logout.js'></script>
         <script src="/js/cancel.js"></script>
       <!-- end Single Event Page -->
