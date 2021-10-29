@@ -9,6 +9,7 @@ router.post('/', async (req,res) => {
             }
         })
         const userId = await findUserId.get({plain: true})
+        console.log(userId)
         const findEid = await Event.findOne({
             where: {
                 event_unique: req.body.eventId
