@@ -1,14 +1,6 @@
 <!-- Login page, logo and form -->
-
-<img
-  src='./assets/noun_Party_98497.png'
-  alt='Party by Tommy Lau from the Noun Project'
-  class='mb-4'
-  alt
-  width='140'
-  height='140'
-/>
-<form class='row'>
+<div class='container row text-center'>
+<form class='bg-light rounded col m-1'>
   <div class='col-md mb-3'>
     <h1>Login</h1>
     <input
@@ -25,9 +17,11 @@
       placeholder='Password'
     />
     <label for='loginPassword'>Password</label>
-    <br />
-    <button id='login' class='btn btn-light'>Login</button>
+    <br>
+    <button id='login' class='btn btn-secondary mt-4'>Login</button>
   </div>
+  </form>
+  <form class='bg-light rounded col m-1'>
   <div class='col-md mb-3'>
     <h1>Sign Up</h1>
     <input
@@ -52,8 +46,9 @@
     />
     <label for='signupName'>Name</label>
     <br />
-    <button id='signup' class='btn btn-light'>Sign Up</button>
+    <button id='signup' class='btn btn-secondary'>Sign Up</button>
   </div>
 </form>
+</div>
 <script src='./js/login.js'></script>
 <!-- end login -->

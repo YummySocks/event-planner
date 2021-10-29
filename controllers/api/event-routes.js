@@ -21,8 +21,6 @@ const { Event, EventUser, User } = require('../../models');
   }
 });
         
-        
-           
 
   
  
@@ -40,21 +38,17 @@ router.put('/:id', (req, res, next ) => {
 
 
     //delete event
-    router.delete('/:id', (req, res) => {
-        Event.destroy({
+    router.delete('/:id', async (req, res) => {
+      try {
+        const deleteEvent = await Event.destroy({
           where: {
-            id: req.params.id,
+            event_unique: req.params.id,
           },
         })
-          .then((products) => {
-              ///delete applicable eventUser data. 
-              ///delete all elements in eventUser with same event ID here
-            res.json(products);
-          })
-          .catch((err) => {
-            console.log(err);
-            res.status(400).json(err);
-          });
-      });
+        res.json(deleteEvent)
+      } catch(err) {
+        res.status(500).json(err)
+      }
+});
       
 module.exports = router;
