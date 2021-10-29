@@ -50,5 +50,20 @@ router.put('/:id', (req, res, next ) => {
         res.status(500).json(err)
       }
 });
+
+router.post('/invite', async (req, res) => {
+  try {
+    const newInvite = await Event.create({
+      title: req.body.title,
+      description: req.body.description,
+      location: req.body.location,
+      dates: req.body.date,
+      capacity: req.body.capacity
+  })
+  res.json(newEvent)
+}catch(err) {
+  res.status(500).json(err);
+}
+});
       
 module.exports = router;

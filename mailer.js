@@ -18,14 +18,13 @@ async function main() {
 
 console.log(mailOptions)
 
-    let info = await transporter.sendMail({mailOptions, function (error, info){
-        if (error) {
-            console.log(error);
+    let info = transporter.sendMail(mailOptions, function (error, data){
+        if (err) {
+            console.log('Error:' + error);
         } else {
-            console.log('Email sent: ' + info.response)
+            console.log('Email sent successfully!')
         }
-    }
-          })
+          });
 
 
         console.log("Message sent: %s", info,messageId)
@@ -38,3 +37,4 @@ console.log(mailOptions)
 
 main().catch(console.error);
 
+module.exports = nodemailer

@@ -1,36 +1,36 @@
+mailOptions = [];
 
-
-  const toInvite = document.querySelector('#toInvite').value.trim();
-  const message = document.querySelector('#message').value.trim();
-
-var mailOptions = {
-  from: "Event Planners",
-  to: toInvite,
-  subject: `You've been invited to {eventName}!`,
-  text: message,
-}
-
-
-const newInvite = async (event) => {
+const newInvite = async () => {
   console.log(window.location.params)
     console.log('hello world')
   
+    const fromInvite = document.querySelector('#fromInvite').value.trim();
+    const toInvite = document.querySelector('#toInvite').value.trim();
+    const message = document.querySelector('#message').value.trim();
 
     console.log(toInvite)
-    //console.log(fromInvite)
-    console.log(invite)
+    console.log(fromInvite)
+    console.log(message)
     debugger
 
     
+    var mailOptions = {
+      from: "Event Planners",
+      to: toInvite,
+      text: message,
+    }
 
-    if (toInvite && invite) {
+    if (toInvite && fromInvite && message) {
       const response = await fetch(`/api/invite`, {
         method: 'POST',
-        body: JSON.stringify({ toInvite, invite }),
+        body: JSON.stringify({ toInvite, fromInvite, message }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+
+
+
   
       if (response.ok) {
         document.location.replace('/');
@@ -43,8 +43,3 @@ const newInvite = async (event) => {
   document
     .querySelector('#send')
     .addEventListener('click', newInvite)
-
-    module.exports = {mailOptions}
-
-
-    document.querySelector('#invite').addEventListener('click', newInvite);
