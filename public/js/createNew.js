@@ -1,5 +1,4 @@
 const createNew = async (event) => {
-  console.log('hellooooo new york!!! SHut up')
   const title = document.querySelector('#eventTitle').value.trim();
   const location = document.querySelector('#eventLoc').value.trim();
   const description = document.querySelector('#eventDescription').value.trim();
