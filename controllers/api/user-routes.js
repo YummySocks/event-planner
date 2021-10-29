@@ -8,11 +8,11 @@ router.get('/', (req, res) => {
     User.findAll({
         include:[Event]
     })
-        .then((events) => res.json(events))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .then((events) => res.json(events))
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 // get one user
@@ -34,8 +34,6 @@ router.get('/:id', (req, res) => {
 
 //login, check if email and password are matched in DB
 router.post('/login', async (req, res) => {
-    console.log("HEELLLLLOOOOOOO")
-    console.log(req.body)
     try {
         const user = await User.findOne({
             where: {

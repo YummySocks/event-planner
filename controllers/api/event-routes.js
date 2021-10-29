@@ -21,8 +21,6 @@ const { Event, EventUser, User } = require('../../models');
   }
 });
         
-        
-           
 
   
  
