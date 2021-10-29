@@ -3,9 +3,9 @@
   <div class="row align-items-start">
     <nav class="col-2 bg-light homepage p-2">
       <h2> Navigation </h2>
-      <!-- {{#if logged_in}}
-              <script src='/js/logout.js'></script>
-            {{/if}} -->
+          <button type="button" class="btn btn-secondary"><a href="">Log Out</a></button> <script src='/js/logout.js'></script>
+      {{#if logged_in}}
+            {{/if}}
     </nav>
     <div class="col p-2">
       <h2>My Events</h2>
@@ -26,7 +26,7 @@
     </div>
     <aside class="col-2 bg-light homepage p-2">
       <h2>My RSVPs</h2>
-      <a href="/new">Create New Event</a>
+      <button type="button" class="btn btn-secondary"><a href="/new">Create New Event</a></button>
     </aside>
   </div>
   </div>
