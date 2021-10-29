@@ -1,13 +1,13 @@
       <!-- CreateNew Page -->
           <nav class="col-2 bg-light homepage p-2">
             <h2> Navigation </h2>
-            <!-- {{#if logged_in}}
-              <script src='/js/logout.js'></script>
-            {{/if}} -->
+      {{!-- <!-- {{#if logged_in}} --> --}}
+          <button type="button" id="logout" class="btn btn-secondary m-2"><a href="/login">Log Out</a></button>
+      {{!-- <!-- {{/if}} --> --}}
           </nav>
           <form class="col p-4" autocomplete="off">
            <h2>Create New Event</h2>
-           <div class="mb-3">
+        <div class="mb-3">
             <label for="eventTitle" class="form-label">Event Title</label>
             <input type="text" class="form-control" id="eventTitle" placeholder="Ex: Birthday Bash!">
             <label for="eventLoc" class="form-label">Location</label>
@@ -36,5 +36,6 @@
             <h2>My RSVPs</h2>
           </aside>
 
-        <script src="./js/createNew.js"></script>
+      <script src='/js/logout.js'></script>
+      <script src="./js/createNew.js"></script>
       <!-- end CreateNew Page -->
