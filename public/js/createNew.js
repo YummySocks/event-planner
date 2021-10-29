@@ -4,16 +4,11 @@ const createNew = async (event) => {
   const description = document.querySelector('#eventDescription').value.trim();
   const date = document.querySelector('#date').value.trim();
   const capacity = document.querySelector('#eventCapacity').value;
-  console.log(title)
-  console.log(location)
-  console.log(description)
-  console.log(date)
-  console.log(capacity)
-  debugger
+  const userEmail = localStorage.getItem('user')
   if (title && location && description && date && capacity) {
     const response = await fetch(`/api/event`, {
       method: 'POST',
-      body: JSON.stringify({ title, location, description, date, capacity }),
+      body: JSON.stringify({ title, location, description, date, capacity, userEmail }),
       headers: {
         'Content-Type': 'application/json',
       },
