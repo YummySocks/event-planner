@@ -1,4 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Sequelize, Model, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config/config');
 
 class Event extends Model {}
@@ -10,6 +10,11 @@ Event.init(
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+        },
+        event_unique: {
+            type: DataTypes.STRING,
+            defaultValue: UUIDV4,
+            allowNull:false,
         },
         title:{
             type: DataTypes.STRING,
