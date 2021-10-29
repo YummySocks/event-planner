@@ -1,4 +1,6 @@
 const nodemailer = require ("nodemailer")
+const newInvite = require('./public/js/new-invite')
+
 
 async function main() {
 
@@ -14,19 +16,15 @@ async function main() {
         },
     });
 
-    var mailOptions = {
-        from: ,
-        to: ,
-        subject: ,
-        text: ,
-    }
+console.log(mailOptions)
 
-    let info = await transporter.sendMail({
-        from: '"Event Planners" <foo@example.com>',
-        to: "bar@example.com, baz@example.com",
-        subject: "Hello!",
-        text: "Hello world?",
-        html: "<b> Hello World</b>",
+    let info = await transporter.sendMail({mailOptions, function (error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response)
+        }
+    }
           })
 
 
@@ -39,3 +37,4 @@ async function main() {
 }
 
 main().catch(console.error);
+

@@ -105,3 +105,6 @@ dist
 
 # vscode settings
 .vscode
+
+# HTML files
+.html

@@ -1,25 +1,46 @@
-const createNew = async (event) => {
-    event.preventDefault();
 
-  const title = document.querySelector('#eventTitle').value.trim();
-  const location = document.querySelector('#eventLoc').value.trim();
-  const description = document.querySelector('#eventDescription').value.trim();
-  const from = document.querySelector('#from').value.trim();
-  const to = document.querySelector('#to').value.trim();
 
-  if (title && location && description && from && to) {
-    const response = await fetch(`/api/events`, {
-      method: 'POST',
-      body: JSON.stringify({ title, location, description, from, to }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const toInvite = document.querySelector('#toInvite').value.trim();
+  const message = document.querySelector('#message').value.trim();
 
-    if (response.ok) {
-      document.location.replace('/home');
-    } else {
-      alert('Did not create Event');
+var mailOptions = {
+  from: "Event Planners",
+  to: toInvite,
+  subject: `You've been invited to {eventName}!`,
+  text: message,
+}
+
+
+const newInvite = async (event) => {
+    console.log('hello world')
+  
+
+    console.log(toInvite)
+    //console.log(fromInvite)
+    console.log(invite)
+    debugger
+
+    
+
+    if (toInvite && invite) {
+      const response = await fetch(`/api/invite`, {
+        method: 'POST',
+        body: JSON.stringify({ toInvite, invite }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Did not create invite');
+      }
     }
-  }
-};
+  };
+  
+  document
+    .querySelector('#send')
+    .addEventListener('click', newInvite)
+
+    module.exports = {mailOptions}
