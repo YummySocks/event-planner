@@ -3,17 +3,27 @@ const {Event, User, EventUser} = require('../models')
 const withAuth = require('../utils/auth')
 
 // get all events
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const eventData = await Event.findAll({
-            include: [User],
-          })
-          const events = eventData.map((event) => event.get({plain : true}))
-          res.render('home', {events})
-    } catch (err) {
-        res.status(500).json(err);
-    }
-  });
+router.get('/:id', async (req,res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        email: req.params.id
+      },
+      include: [Event]
+      })
+      console.log(userData)
+      const usersEvents = userData.get({plain: true})
+      console.log(usersEvents.events)
+      const listEvents = usersEvents.events
+      res.render('home', {listEvents})
+} catch (err) {
+    res.status(500).json(err);
+}
+})
+
+router.get('/', (req,res) => {
+  res.render('home')
+})
 
 // router link to move to creating new event
 router.get('/new', (req,res) => {

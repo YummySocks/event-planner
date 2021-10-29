@@ -40,26 +40,28 @@ router.post('/login', async (req, res) => {
                 email: req.body.email,
             },
         });
-        console.log(user)
         if (!user) {
             res.status(400).json({ message: 'user not found!' })
             return;
         }
-        console.log(req.body.password)
         const validPassword = user.checkPassword(req.body.password);
         console.log(validPassword)
         if (!validPassword) {
             res.status(400).json({ message: 'password not found!' });
             return;
         }
+        const userData = await user.get({plain: true})
+        console.log(userData)
+       
         req.session.save(() => {
             
             req.session.email = user.email
             req.session.username = user.username
             req.session.loggedIn = true;
-
             res.status(200).json({ user, message: 'You are logged in!' });
         });
+        const id = userData.users_unique
+        res.redirect(`/${id}`)
     } catch (err) {
         res.status(400).json({ message: 'No user account found!' });
     }

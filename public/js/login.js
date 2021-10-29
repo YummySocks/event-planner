@@ -14,7 +14,8 @@ const loginSection = async () => {
   
       if (response.ok) {
         // If login is successful, it redirects the browser to the event home page
-        document.location.replace('/');
+        // document.location.replace('/');
+        console.log("step 1")
       } else {
         alert(response.statusText);
       }
