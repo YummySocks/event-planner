@@ -34,19 +34,22 @@ router.get('/:id', (req, res) => {
 
 //login, check if email and password are matched in DB
 router.post('/login', async (req, res) => {
+    console.log("HEELLLLLOOOOOOO")
+    console.log(req.body)
     try {
         const user = await User.findOne({
             where: {
                 email: req.body.email,
             },
         });
+        console.log(user)
         if (!user) {
             res.status(400).json({ message: 'user not found!' })
             return;
         }
-
+        console.log(req.body.password)
         const validPassword = user.checkPassword(req.body.password);
-
+        console.log(validPassword)
         if (!validPassword) {
             res.status(400).json({ message: 'password not found!' });
             return;
@@ -54,9 +57,10 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.email = user.email
+            req.session.username = user.username
             req.session.loggedIn = true;
 
-            res.json({ user, message: 'You are logged in!' });
+            res.status(200).json({ user, message: 'You are logged in!' });
         });
     } catch (err) {
         res.status(400).json({ message: 'No user account found!' });
@@ -78,19 +82,26 @@ router.post('/logout', (req,res) => {
 
 
 //creating user
-router.post('/', (req, res) => {
-    User.create({
-        username: req.body.username,
+router.post('/', async (req, res) => {
+    console.log(req.body.email)
+    try {
+      const newUser = await User.create({
         email: req.body.email,
+        username: req.body.username,
         password: req.body.password,
-    })
-        .then((newUser) => {
-            res.json(newEvent)
-        })
-        .catch((err) => {
-            res.json(err);
-        });
-});
+      });
+  
+      req.session.save(() => {
+        req.session.email = newUser.email;
+        req.session.username = newUser.username;
+        req.session.loggedIn = true;
+  
+        res.json(newUser);
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 //delete user
 router.delete('/', (req, res) => {

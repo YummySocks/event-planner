@@ -11,15 +11,23 @@
             </div>
           </nav>
           <div class="col p-2">
-           <h2>{{title}}</h2>
-           <p>{{description}}</p>
+           <h2>{{event.title}}</h2>
+           <p>{{event.description}}</p>
+           <h2>date</h2>
+           <p>{{event.dates}}</p>
+           <h2>location</h2>
+           <p>{{event.location}}</p>
            <h2>Attendees</h2>
            <div class="inviteList">
             <ol>
-            <li>{{#each users as |users| }} {{user.username}}</li> {{/each}}
+              {{#each event.users as |users|}} 
+            <li>{{users.username}}</li> 
+              {{/each}}
             </ol>
             </div>
           </div>
+          <h2>Capacity</h2>
+          <p>{{event.capacity}}</p>
           <aside class="col-2 bg-light homepage p-2">
             <h2>My RSVPs</h2>
           </aside>

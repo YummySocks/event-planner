@@ -22,12 +22,17 @@
         <!-- datePicker -->
         <div class="container">
           <div class="row">
-            <label for="from" class="form-label">From</label>
-            <input type="text" id="from" name="from" class="form-control col">
-            <label for="to">To</label>
-            <input type="text" id="to" name="to" class="form-control col">
+            <label for="from" class="form-label">Date</label>
+            <input type="text" id="date" name="from" class="form-control col">
+            {{!-- <label for="to">To</label>
+            <input type="text" id="to" name="to" class="form-control col"> --}}
           </div>
         </div>
+        <div class="mb-3">
+            <label for="eventCapacity" class="form-label">Capacity</label>
+            <textarea class="form-control" id="eventCapacity" rows="4" placeholder="How many people are you able to host/want uwu"></textarea>
+        </div>
+        <button id="newEvent">click me</button>
       </form>
           <aside class="col-2 bg-light homepage p-2">
             <h2>My RSVPs</h2>
