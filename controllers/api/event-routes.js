@@ -6,20 +6,23 @@ const { Event, EventUser, User } = require('../../models');
   
 
   //create new event
-  router.post('/', (req, res) => {
-        Event.create({
+  router.post('/', async (req, res) => {
+    try {
+      const newEvent = await Event.create({
         title: req.body.title,
         description: req.body.description,
-        dates: req.body.dates,
+        dates: req.body.date,
         capacity: req.body.capacity
-    })      
-        .then((newEvent) => {
-            res.json(newEvent)
-        })
-        .catch((err) => {
-            res.json(err);
-          });
-  });
+    })
+    res.json(newEvent)
+  }catch(err) {
+    res.status(500).json(err);
+  }
+});
+        
+        
+           
+
   
  
   // update event (only title and description added for now)

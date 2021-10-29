@@ -17,6 +17,11 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
 
+// router link to move to creating new event
+router.get('/new', (req,res) => {
+  res.render('createNew')
+})
+
   // login
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
