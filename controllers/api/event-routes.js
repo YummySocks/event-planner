@@ -15,6 +15,7 @@ const { Event, EventUser, User } = require('../../models');
         dates: req.body.date,
         capacity: req.body.capacity
     })
+    
     res.json(newEvent)
   }catch(err) {
     res.status(500).json(err);
