@@ -12,6 +12,7 @@ var mailOptions = {
 
 
 const newInvite = async (event) => {
+  console.log(window.location.params)
     console.log('hello world')
   
 
