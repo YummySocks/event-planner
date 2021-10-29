@@ -1,4 +1,5 @@
 const newInvite = async (event) => {
+  console.log(window.location)
     console.log('hello world')
     const toInvite = document.querySelector('#toInvite').value.trim();
     const fromInvite = document.querySelector('#fromInvite').value.trim();
@@ -7,7 +8,6 @@ const newInvite = async (event) => {
     console.log(toInvite)
     console.log(fromInvite)
     console.log(invite)
-    debugger
 
     if (toInvite && fromInvite && invite) {
       const response = await fetch(`/api/invite`, {

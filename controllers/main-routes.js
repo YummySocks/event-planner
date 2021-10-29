@@ -5,12 +5,11 @@ const withAuth = require('../utils/auth')
 // get all events
 router.get('/', withAuth, async (req, res) => {
     try {
-        // const eventData = await Event.findAll({
-        //     include: [User],
-        //   })
-        //   const events = eventData.map((event) => event.get({plain : true}))
-        //   console.log(events)
-          res.render('home')
+        const eventData = await Event.findAll({
+            include: [User],
+          })
+          const events = eventData.map((event) => event.get({plain : true}))
+          res.render('home', {events})
     } catch (err) {
         res.status(500).json(err);
     }
@@ -19,6 +18,10 @@ router.get('/', withAuth, async (req, res) => {
 // router link to move to creating new event
 router.get('/new', (req,res) => {
   res.render('createNew')
+})
+
+router.get('/invite', (req,res) => {
+  res.render('invite')
 })
 
   // login
@@ -46,7 +49,10 @@ router.get('/new', (req,res) => {
 // get one event
 router.get('/event/:id', async (req, res) => {
   try{
-    const eventData = await Event.findByPk(req.params.id, {
+    const eventData = await Event.findOne({
+      where: {
+        event_unique: req.params.id,
+      },
       include : [
         User,
       ],
