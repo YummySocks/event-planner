@@ -2,14 +2,14 @@
 <nav class="col-2 bg-light homepage p-2">
     <h2> Navigation </h2>
     {{!-- {{#if logged_in}} --}}
-          <button type="button" id="logout" class="btn btn-secondary m-2"><a href="/login">Log Out</a></button>
+    <button type="button" id="logout" class="btn btn-secondary m-2"><a href="/login">Log Out</a></button>
     {{!-- {{/if}} --}}
-    <button type="button" class="btn btn-secondary m-2"><a href="/new">Create New Event</a></button> <br>
+    <button type="button" class="btn btn-secondary m-2"><a href="/new">Create New Event</a></button>
+    <br>
     <button type="button" class="btn btn-secondary m-2"><a href="/invite">Send Invites</a></button>
 </nav>
 <div class="col m-5 p-2" autocomplete=off>
-    <h2>{{event.name}}</h2>
-    <h2>Invite</h2>
+    <h2>Send invitations to: {{event.name}}</h2>
     <form class="newInvite">
         <label for="to" class="form-label">To:</label>
         <input type="text" id="toInvite" class="form-control">
@@ -21,9 +21,8 @@
     </form>
 </div>
 <aside class="col-2 bg-light homepage p-2">
-<h2>My RSVPs</h2>
+    <h2>My RSVPs</h2>
 </aside>
-</div>
 
 <script src='/js/logout.js'></script>
 <script src="./js/new-invite.js"></script>
