@@ -27,6 +27,14 @@ label {
   font-size: large;
 }
 
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
 #logo {
   max-height: 10vh;
 }

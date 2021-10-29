@@ -45,3 +45,6 @@ const newInvite = async (event) => {
     .addEventListener('click', newInvite)
 
     module.exports = {mailOptions}
+
+
+    document.querySelector('#invite').addEventListener('click', newInvite);
