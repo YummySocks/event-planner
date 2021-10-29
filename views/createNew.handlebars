@@ -1,5 +1,4 @@
       <!-- CreateNew Page -->
-      <div class="container-fluid homepage">
         <div class="row align-items-start">
           <nav class="col-2 bg-light homepage p-2">
             <h2> Navigation </h2>
@@ -23,7 +22,7 @@
         <div class="container">
           <div class="row">
             <label for="from" class="form-label">Date</label>
-            <input type="text" id="date" name="from" class="form-control col">
+            <input type="text" id="date" name="from" class="form-control">
             {{!-- <label for="to">To</label>
             <input type="text" id="to" name="to" class="form-control col"> --}}
           </div>
@@ -32,12 +31,11 @@
             <label for="eventCapacity" class="form-label">Capacity</label>
             <textarea class="form-control" id="eventCapacity" rows="4" placeholder="How many people are you able to host/want uwu"></textarea>
         </div>
-        <button id="newEvent">click me</button>
+        <button type="button" class="btn btn-light" id="newEvent">It's a Party! 🎉</button>
       </form>
           <aside class="col-2 bg-light homepage p-2">
             <h2>My RSVPs</h2>
           </aside>
-        </div>
 
         <script src="./js/createNew.js"></script>
       <!-- end CreateNew Page -->
