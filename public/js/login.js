@@ -2,7 +2,7 @@ const loginSection = async () => {
     // This collects the value from the login section
     const email = document.querySelector('#login-email').value;
     const password = document.querySelector('#login-password').value;
-  
+    localStorage.setItem('user', email)
     if (email && password) {
       // This sends a POST request to the API
       console.log("email and password worked!")
@@ -23,7 +23,6 @@ const loginSection = async () => {
 
   const signupSection = async () => {
     // This collects the value from the signup section
-    debugger
     const email = document.querySelector('#signupEmail').value;
     const password = document.querySelector('#signupPassword').value;
     const username = document.querySelector('#signupName').value;

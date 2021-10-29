@@ -52,8 +52,8 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'password not found!' });
             return;
         }
-
         req.session.save(() => {
+            
             req.session.email = user.email
             req.session.username = user.username
             req.session.loggedIn = true;
