@@ -7,6 +7,6 @@ router.use('/event', eventRoute)
 router.use('/users', userRoute)
 router.use('/invite', inviteRoute)
 
-router.put()
+
 
   module.exports = router;
