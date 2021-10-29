@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
             req.session.email = user.email
             req.session.loggedIn = true;
 
-            res.json({ user, message: 'You are logged in!' });
+            res.json({ user: user, message: 'You are logged in!' });
         });
     } catch (err) {
         res.status(400).json({ message: 'No user account found!' });
