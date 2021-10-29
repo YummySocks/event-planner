@@ -41,7 +41,7 @@ router.put('/:id', (req, res, next ) => {
     router.delete('/:id', (req, res) => {
         Event.destroy({
           where: {
-            id: req.params.id,
+            event_unique: req.params.id,
           },
         })
           .then((products) => {
