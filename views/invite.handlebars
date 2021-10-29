@@ -6,16 +6,18 @@
 <h2>Invite</h2>
 <form class="newInvite row">
     <label for="to" class="form-label">To:</label>
-    <input type="text" class="form-control">
+    <input type="text" id="toInvite" class="form-control">
     <label for="from">From:</label>
-    <input type="text" class="form-control">
+    <input type="text" id="fromInvite" class="form-control">
     <label for="invite">Invite Message:</label>
     <textarea name="invite" id="invite" class="form-control" cols="30" rows="10"></textarea>
-    <button type="button" class="btn-light m-2">Send!</button>
+    <button type="button" id="send" class="btn-light m-2">Send!</button>
 </form>
 </div>
 <aside class="col-2 bg-light homepage p-2">
 <h2>My RSVPs</h2>
 </aside>
 </div>
+
+<script src="./js/new-invite.js"></script>
 <!-- end Invite Page -->
