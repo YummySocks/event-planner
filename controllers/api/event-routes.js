@@ -11,6 +11,7 @@ const { Event, EventUser, User } = require('../../models');
       const newEvent = await Event.create({
         title: req.body.title,
         description: req.body.description,
+        location: req.body.location,
         dates: req.body.date,
         capacity: req.body.capacity
     })

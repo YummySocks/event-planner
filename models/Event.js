@@ -25,7 +25,6 @@ Event.init(
         },
         location: {
             type: DataTypes.STRING,
-            defaultValue: "yes",
             allowNull: false
         },
         capacity: {
