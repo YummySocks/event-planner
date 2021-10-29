@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
     })
     res.json(newEvent)
     const checkIdEvent = await newEvent.get({ plain: true })
-    console.log(checkIdEvent.event_unique)
     const findUserId = await User.findOne({
       where: {
         email: req.body.userEmail
@@ -30,7 +29,6 @@ router.post('/', async (req, res) => {
       }
     })
     const evenId = await findEid.get({ plain: true })
-    console.log(evenId.id)
     const newEventUser = await EventUser.create({
       usersId: userId.id,
       eventsId: evenId.id

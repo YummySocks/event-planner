@@ -1,19 +1,39 @@
 const router = require('express').Router();
+const { Session } = require('express-session');
+const session = require('express-session');
 const {Event, User, EventUser} = require('../models')
 const withAuth = require('../utils/auth')
 
 // get all events
 router.get('/', withAuth, async (req, res) => {
     try {
-        const eventData = await Event.findAll({
-            include: [User],
+        const eventData = await User.findOne({
+          where: {
+            email: req.session.email
+          },
+            include: [Event],
           })
-          const events = eventData.map((event) => event.get({plain : true}))
+          const events = eventData.get({plain : true})
           res.render('home', {events})
     } catch (err) {
         res.status(500).json(err);
     }
   });
+
+  // router.get('/:id', async (req, res) => {
+  //   try {
+  //       const userData = await User.findOne({
+  //         where: {
+  //           users_unique: req.params.id
+  //         },
+  //           include: [User],
+  //         })
+  //         const events = userData.get({plain : true})
+  //         res.render('home', {events})
+  //   } catch (err) {
+  //       res.status(500).json(err);
+  //   }
+  // });
 
 // router link to move to creating new event
 router.get('/new', (req,res) => {
