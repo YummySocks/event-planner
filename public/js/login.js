@@ -1,4 +1,5 @@
-const loginSection = async () => {
+const loginSection = async (event) => {
+  event.preventDefault()
   // This collects the value from the login section
   const email = document.querySelector('#login-email').value;
   const password = document.querySelector('#login-password').value;
@@ -13,14 +14,16 @@ const loginSection = async () => {
 
     if (response.ok) {
       // If login is successful, it redirects the browser to the event home page
-      document.location.replace('/');
+      location.replace('/')
+
     } else {
       alert(response.statusText);
     }
   }
 };
 
-const signupSection = async () => {
+const signupSection = async (event) => {
+  event.preventDefault()
   // This collects the value from the signup section
   const email = document.querySelector('#signupEmail').value;
   const password = document.querySelector('#signupPassword').value;
@@ -34,7 +37,7 @@ const signupSection = async () => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      location.replace('/')
     } else {
       alert(response.statusText);
     }
