@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
-
+// grabs the user data then the event data and then links them together through the EventUser table
 router.post('/', async (req,res) => {
     try {
         const findUserId = await User.findOne({
@@ -9,7 +9,6 @@ router.post('/', async (req,res) => {
             }
         })
         const userId = await findUserId.get({plain: true})
-        console.log(userId)
         const findEid = await Event.findOne({
             where: {
                 event_unique: req.body.eventId

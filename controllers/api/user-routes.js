@@ -2,18 +2,6 @@ const router = require('express').Router();
 const { User,  Event, EventUser } = require('../../models');
 
 
-//get all users
-// router.get('/', (req, res) => {
-//     User.findAll({
-//         include:[Event]
-//     })
-//     .then((events) => res.json(events))
-//     .catch((err) => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
-
 // get one user
 router.get('/:id', (req, res) => {
     User.findOne({
@@ -26,7 +14,6 @@ router.get('/:id', (req, res) => {
     })
         .then((events) => res.json(events))
         .catch((err) => {
-            console.log(err);
             res.status(400).json(err);
         });
 });
@@ -64,18 +51,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
-
-router.post('/logout', (req,res) => {
-    if(req.session.loggedIn) {
-    req.session.destroy(() => {
-        res.status(204).end();
-    });
-}
-    else {
-    res.status(404).end();
-}
-});
 
 
 //creating user
