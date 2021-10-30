@@ -14,8 +14,8 @@ const loginSection = async (event) => {
 
     if (response.ok) {
       // If login is successful, it redirects the browser to the event home page
-      location.replace('/')
-
+      confetti();
+      setTimeout(function(){ window.location.replace('/')}, 800)
     } else {
       alert(response.statusText);
     }
