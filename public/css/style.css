@@ -44,3 +44,27 @@ p {
 #login {
   align-content: flex-end;
 }
+
+/* http://waitanimate.wstone.io/#!/ */
+.shake:hover {
+  animation: shake-animation .5s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+#party {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+}
+
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  2.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  9.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
