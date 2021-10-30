@@ -11,16 +11,13 @@ body {
   border-radius: 20px;
 }
 
-.inviteList {
-  float: left;
-}
-
 h1 {
-  font-weight: 600;
+    font-weight: 700;
+    color: black;
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 label {
@@ -29,12 +26,21 @@ label {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
   color: inherit;
 }
 
+p {
+  font-size: large;
+}
+
 #logo {
   max-height: 10vh;
+}
+
+#login {
+  align-content: flex-end;
 }

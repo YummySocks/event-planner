@@ -7,16 +7,14 @@
       <button type="button" class="btn btn-secondary m-2"><a href="/new">Create New Event</a></button>
      
     </nav>
-    <div class="col p-2">
+    <div class="col text-light m-4 p-2">
       <h2>My Events</h2>
       {{#each events.events}}
-      <article>
+      <article class='bg-light rounded col m-3' style='--bs-bg-opacity: .4;'>
         <div>
-          <h2>
-            <a href="/event/{{event_unique}}">{{title}}</a>
-          </h2>
-          <div>
-          </div>
+          <h3>
+            <a href="/event/{{event_unique}}">{{title}}: {{dates}}</a>
+          </h3>
         </div>
         <div>
           {{description}}
