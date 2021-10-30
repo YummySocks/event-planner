@@ -25,7 +25,7 @@ const signupSection = async () => {
   const email = document.querySelector('#signupEmail').value;
   const password = document.querySelector('#signupPassword').value;
   const username = document.querySelector('#signupName').value;
-
+  localStorage.setItem('user', email)
   if (email && password && username) {
     const response = await fetch('/api/users', {
       method: 'POST',
