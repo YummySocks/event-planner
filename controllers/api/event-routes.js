@@ -39,7 +39,18 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+router.get('/:id', async (req, res) => {
+  try{
+    const eventData = await Event.findByPk(req.params.id,{
+      include : [
+        User,
+      ],
+        });
+          res.json(eventData);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+        });
 
 
 // update event (only title and description added for now)

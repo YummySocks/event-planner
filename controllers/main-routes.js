@@ -20,20 +20,6 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
 
-  // router.get('/:id', async (req, res) => {
-  //   try {
-  //       const userData = await User.findOne({
-  //         where: {
-  //           users_unique: req.params.id
-  //         },
-  //           include: [User],
-  //         })
-  //         const events = userData.get({plain : true})
-  //         res.render('home', {events})
-  //   } catch (err) {
-  //       res.status(500).json(err);
-  //   }
-  // });
 
 // router link to move to creating new event
 router.get('/new', (req,res) => {
