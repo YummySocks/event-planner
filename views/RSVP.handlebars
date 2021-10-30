@@ -1,26 +1,25 @@
       <!-- RSVP Page -->
-      <div class="container-fluid homepage">
-        <div class="row align-items-start">
-          <nav class="col-2 bg-light homepage p-2">
-            <h2> Navigation </h2>
-            <!-- {{#if logged_in}}
-              <script src='/js/logout.js'></script>
-            {{/if}} -->
-          </nav>
-          <form class="col p-4" autocomplete="off">
-           <h2>RSVP to {{eventTitle}}</h2>
-           <div class="mb-3">
-            <label for="attend" class="form-label">Will you attend?</label>
-            <select class="form-select" id="attend">
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-        </div>
-        <button type="submit" id="submitRSVP" class="btn btn-light"></button>
-      </form>
-          <aside class="col-2 bg-light homepage p-2">
-            <h2>My RSVPs</h2>
-          </aside>
-        </div>
+    <nav class="col-2 bg-light homepage p-2">
+      <h2> Navigation </h2>
+      <button type="button" class="btn btn-secondary m-2" id="logout">Log Out</button>
+      <br>
+    <!-- cancel event -->
+      <button type="button" class="btn btn-secondary" id="cancel">Cancel Event</button>
+      <button type="button" class="btn btn-secondary m-2"><a href="/invite">Send Invites</a></button>
+    </nav>
+    <form class="col text-light p-4" autocomplete="off">
+      <h2>RSVP to {{eventTitle}}</h2>
+      <div class="mb-3">
+        <label for="attend" class="form-label">Will you attend?</label>
+        <select class="form-select" id="attend">
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+      </div>
+    <button type="submit" id="submitRSVP" class="btn btn-light"></button>
+  </form>
+  <aside class="col-2 bg-light homepage p-2">
+    <h2>My RSVPs</h2>
+  </aside>
 
         <script src="./js/createNew.js"></script>
       <!-- end RSVP Page -->

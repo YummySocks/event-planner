@@ -7,22 +7,22 @@
   <button type="button" class="btn btn-secondary" id="cancel">Cancel Event</button>
   <button type="button" class="btn btn-secondary m-2"><a href="/invite">Send Invites</a></button>
 </nav>
-<div class="col p-2">
+<div class="col text-light p-2">
     <h2>{{event.title}}</h2>
     <p>{{event.description}}</p>
-    <h2>Date</h2>
+    <h3>Date</h3>
     <p>{{event.dates}}</p>
-    <h2>location</h2>
+    <h3>Location</h3>
     <p>{{event.location}}</p>
-    <h2>Attendees</h2>
-      <div class="">
+    <h3>Attendees</h3>
+      <div class="text-start m-4">
         <ol>
           {{#each event.users as |users|}} 
           <li>{{users.username}}</li> 
           {{/each}}
         </ol>
       </div>
-    <h2>Capacity</h2>
+    <h3>Capacity</h3>
     <p>{{event.capacity}}</p>
 </div>
   <aside class="col-2 bg-light homepage p-2">
