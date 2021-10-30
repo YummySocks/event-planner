@@ -31,16 +31,36 @@ a {
 
 a:hover {
   color: inherit;
+  text-decoration: underline;
 }
 
 p {
   font-size: large;
 }
 
-#logo {
-  max-height: 10vh;
-}
+
 
 #login {
   align-content: flex-end;
+}
+
+/* http://waitanimate.wstone.io/#!/ */
+.shake:hover {
+  animation: shake-animation .5s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  2.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  9.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+
+.event:hover {
+  box-shadow: 0 0 5px white;
 }
