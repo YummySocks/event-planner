@@ -31,15 +31,14 @@ a {
 
 a:hover {
   color: inherit;
+  text-decoration: underline;
 }
 
 p {
   font-size: large;
 }
 
-#logo {
-  max-height: 10vh;
-}
+
 
 #login {
   align-content: flex-end;
@@ -51,13 +50,6 @@ p {
   transform-origin: 50% 50%;
 }
 
-#party {
-  margin: 0 auto;
-  width: 150px;
-  height: 150px;
-  background: transparent;
-}
-
 @keyframes shake-animation {
    0% { transform:translate(0,0) }
   1.78571% { transform:translate(5px,0) }
@@ -67,4 +59,8 @@ p {
   8.92857% { transform:translate(5px,0) }
   9.71429% { transform:translate(0,0) }
   100% { transform:translate(0,0) }
+}
+
+.event:hover {
+  box-shadow: 0 0 5px white;
 }
