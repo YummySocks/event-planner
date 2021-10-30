@@ -5,10 +5,10 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/auth')
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+// grabs the connection through the .env file if local or through jawsdb if the deployed heroku link
 const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+// stores session data and uses cookies to set a timer on how long it will stay stored
 const sess = {
     secret: 'Secret time',
     cookie: {
@@ -23,9 +23,9 @@ const sess = {
       db: sequelize
     })
 };
-
+// function for using above data
 app.use(session(sess))
-
+// helper functions in the handlebars
 const hbs = exphbs.create({ helpers })
 
 app.engine('handlebars', hbs.engine)

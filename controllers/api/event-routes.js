@@ -5,7 +5,7 @@ const { Event, EventUser, User } = require('../../models');
 
 
 
-//create new event
+//creates new event and auto adds the user that created the event to be included in the list of attendees
 router.post('/', async (req, res) => {
   try {
     const newEvent = await Event.create({
@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// used for testing to grab a single event by its base id number
 router.get('/:id', async (req, res) => {
   try{
     const eventData = await Event.findByPk(req.params.id,{
@@ -54,6 +54,7 @@ router.get('/:id', async (req, res) => {
 
 
 // update event (only title and description added for now)
+// possibly for future development
 router.put('/:id', (req, res, next) => {
   Event.update(
     { title: req.body.title, description: req.body.description },

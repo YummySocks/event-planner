@@ -3,10 +3,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
 class EventUser extends Model {}
-
+// this table is used to create relationships between the users and the events
 EventUser.init(
     {
-      // define columns
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,

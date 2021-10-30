@@ -3,7 +3,7 @@ const sequelize = require('../config/config');
 
 class Event extends Model {}
 
-
+// creating the table values for events
 Event.init(
     {
         id: {
