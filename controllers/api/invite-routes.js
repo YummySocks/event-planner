@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const { Event, EventUser, User } = require('../../models');
+const mailFunc = require('../../utils/mailer');
 // grabs the user data then the event data and then links them together through the EventUser table
 router.post('/', async (req,res) => {
     try {
+        // nodemailer function to send email with invite
+        mailFunc(req.body.fromInvite, req.body.toInvite, req.body.invite)
+
         const findUserId = await User.findOne({
             where: {
                 email: req.body.toInvite
