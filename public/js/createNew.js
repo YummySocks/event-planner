@@ -1,11 +1,13 @@
 const createNew = async (event) => {
+  // event.preventDefault();
   const title = document.querySelector('#eventTitle').value.trim();
   const location = document.querySelector('#eventLoc').value.trim();
   const description = document.querySelector('#eventDescription').value.trim();
   const date = document.querySelector('#date').value.trim();
   const capacity = document.querySelector('#eventCapacity').value;
-  const userEmail = localStorage.getItem('user')
+  const userEmail = localStorage.getItem('user');
   if (title && location && description && date && capacity) {
+    // confetti();
     const response = await fetch(`/api/event`, {
       method: 'POST',
       body: JSON.stringify({ title, location, description, date, capacity, userEmail }),
@@ -13,9 +15,10 @@ const createNew = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-
+    
     if (response.ok) {
-      document.location.replace('/');
+      confetti();
+      setTimeout(function(){ window.location.replace('/')}, 1600)
     } else {
       alert('Did not create Event');
     }
