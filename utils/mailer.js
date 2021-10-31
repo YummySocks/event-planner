@@ -16,7 +16,7 @@ const mailFunc = (from, to, message) => {
         from:"yummisocks@outlook.com",
         to: to,
         subject: `You have been invited!!! by ${from}`,
-        text: message
+        text: `${message} click the link!! https://group-event-planner.herokuapp.com/login`
       };
       // function for sending the email
       transporter.sendMail(mailOptions, function(error, info){
