@@ -1,12 +1,13 @@
+
 const newInvite = async () => {
-    const toInvite = document.querySelector('#toInvite').value.trim();
-    const fromInvite = document.querySelector('#fromInvite').value.trim();
-    const invite = document.querySelector('#invite').value.trim();
+  const toInvite = document.querySelector('#toInvite').value.trim();
+  const fromInvite = document.querySelector('#fromInvite').value.trim();
+  const invite = document.querySelector('#invite').value.trim();
     const eventId = localStorage.getItem('euid')
     if (toInvite && eventId) {
       const response = await fetch(`/api/invite`, {
         method: 'POST',
-        body: JSON.stringify({ toInvite, eventId}),
+        body: JSON.stringify({ toInvite, eventId, fromInvite, invite}),
         headers: {
           'Content-Type': 'application/json',
         },
