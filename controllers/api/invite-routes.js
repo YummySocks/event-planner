@@ -4,12 +4,8 @@ const mailFunc = require('../../utils/mailer');
 // grabs the user data then the event data and then links them together through the EventUser table
 router.post('/', async (req,res) => {
     try {
-        console.log(req.body.fromInvite)
-        console.log(req.body.toInvite)
-        console.log(req.body.invite)
+        // nodemailer function to send email with invite
         mailFunc(req.body.fromInvite, req.body.toInvite, req.body.invite)
-
-
 
         const findUserId = await User.findOne({
             where: {
